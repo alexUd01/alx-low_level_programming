@@ -1,4 +1,4 @@
 alx-low_level_programming
 
 
-ThisRepo contains basic C-programming.
+This repo contains basic C-programming.
