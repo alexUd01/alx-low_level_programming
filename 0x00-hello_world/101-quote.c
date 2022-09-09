@@ -2,8 +2,7 @@
 #include<unistd.h>
 
 /**
- * main - Entry point
- * Description: Prints out certain strings
+ * main - the main function
  * return: returns 1
  */
 
