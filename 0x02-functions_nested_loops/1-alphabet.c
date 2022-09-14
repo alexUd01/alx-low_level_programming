@@ -6,10 +6,10 @@
  */
 void print_alphabet(void)
 {
-	int a = '97';
-	int z = '122';
+	int a = 97;
+	int z = 122;
 
-	alpha = 'a';
+	alpha = a;
 	while (alpha <= z)
 	{
 		_putchar(alpha);
