@@ -9,15 +9,5 @@
  */
 int _putchar(char c)
 {
-	char undscr = '_';
-	char lettrP = 'p';
-	char lettrU = 'u';
-	char lettrT = 't';
-	char lettrC = 'c';
-	char lettrH = 'h';
-	char lettrA = 'a';
-	char lettrR = 'r';
-	while((c == undscr) || (c == lettrP) || (c == lettrU) ||(c == lettrT) || (c == lettrC) || (c == lettrH) (c == lettrA) (c == lettrR))
-		putchar(c);
 	return (write(1, &c, 1));
-}
+{
