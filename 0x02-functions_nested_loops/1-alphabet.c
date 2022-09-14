@@ -1,17 +1,20 @@
 #include"main.h"
 
 /**
- * main - the entry point of the program.
+ * print_alphabet - a function that prints the alpjabet, in lowercase.
  * Return: always 0 (Success)
  */
-int main(void)
+void print_alphabet(void)
 {
-	char x = 'a';
+	int a = '97';
+	int z = '122';
 
-	while(x <= z)
+	alpha = 'a';
+	while (alpha <= z)
 	{
-		_putchar(x);
-		x++;
+		_putchar(alpha);
+		alpha++;
 	}
+	_putchar('\n');
 	return (0);
 }
