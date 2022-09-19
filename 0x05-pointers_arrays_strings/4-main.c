@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - tests a function 
+ * main - tests a function
  *
  * Return: always 0
  */
