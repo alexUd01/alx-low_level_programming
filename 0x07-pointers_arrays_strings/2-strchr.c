@@ -11,11 +11,9 @@ char *_strchr(char *s, char c)
 {
 	unsigned int i, len = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
-		len++;
-	for (i = 0; i <= len; i++)
+	for (i = 0; 1; i++)
 	{
-		if (i == len)
+		if (s[i] == 0)
 			return (NULL);
 		if (*(s + i) == c)
 			break;
