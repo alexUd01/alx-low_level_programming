@@ -20,7 +20,7 @@ int is_prime_number(int n)
 /**
  * prime_check - a function that checks of a number is a prime number
  * @n: the number to be tested
- * 
+ * @i: the number to be used as an iterator
  * Return: returns 1 if n is a prime number, otherwise it returns 0
  */
 int prime_check(int n, int i)

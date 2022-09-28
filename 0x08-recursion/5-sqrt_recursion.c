@@ -30,6 +30,6 @@ int sqrt_func(int n, int i)
 		return (-1);
 	if ((i * i) == n)
 		return (i);
-	else //if ((i * i) < n)
+	else
 		return (sqrt_func(n, ++i));
 }
