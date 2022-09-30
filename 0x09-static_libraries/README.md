@@ -1,0 +1,1 @@
+libmy.a contains all the functions listed in the main.h file
