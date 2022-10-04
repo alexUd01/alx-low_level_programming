@@ -31,17 +31,3 @@ char *_strdup(char *str)
 	str2[i] = '\0';
 	return (str2);
 }
-int main(void)
-{
-    char *s;
-
-    s = _strdup("ALX SE");
-    if (s == NULL)
-    {
-        printf("failed to allocate memory\n");
-        return (1);
-    }
-    printf("%s\n", s);
-    free(s);
-    return (0);
-}
