@@ -1,0 +1,1 @@
+0-create_array.c - a function that creates an array of chars and initiailizes it with a specific char.
