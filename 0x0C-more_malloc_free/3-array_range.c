@@ -5,7 +5,7 @@
  * @min: number of elements
  * @max: size in bytes
  * Return: returns a pointer to the allocated memory (ON SUCCESS)
- *         returns NULL if (nmemb == 0) or (size == 0)
+ *         returns NULL if (min > max)
  *         returns NULL (ON FAILURE)
  */
 int *array_range(int min, int max)
