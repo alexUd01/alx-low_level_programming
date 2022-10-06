@@ -13,12 +13,10 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	char *newStr;
 	unsigned int i;
 
-	if (nmemb == 0)
-		return (NULL);
-	if (size == 0)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	newStr = malloc(nmemb * size);
+	newStr = (char *)malloc(nmemb * size);
 	if (newStr == NULL)
 		return (NULL);
 
@@ -27,4 +25,42 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	newStr[i] = '\0';
 
 	return (newStr);
+}
+void simple_print_buffer(char *buffer, unsigned int size)
+{
+    unsigned int i;
+
+    i = 0;
+    while (i < size)
+    {
+        if (i % 10)
+        {
+            printf(" ");
+        }
+        if (!(i % 10) && i)
+        {
+            printf("\n");
+        }
+        printf("0x%02x", buffer[i]);
+        i++;
+    }
+    printf("\n");
+}
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char *a;
+
+    a = _calloc(98, sizeof(char));
+    strcpy(a, "Best");
+    strcpy(a + 4, " School! :)\n");
+    a[97] = '!';
+    simple_print_buffer(a, 98);
+    free(a);
+    return (0);
 }
