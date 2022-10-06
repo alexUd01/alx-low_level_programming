@@ -24,7 +24,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	for (i = 0; i < (nmemb * size); i++)
 		newStr[i] = 0;
-	newStr[i] = '\0';
 
 	return ((void *)newStr);
 }
