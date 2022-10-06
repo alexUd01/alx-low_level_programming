@@ -18,11 +18,11 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (size == 0)
 		return (NULL);
 
-	newStr = malloc(sizeof(*newStr) * nmemb * size);
+	newStr = malloc(nmemb * size);
 	if (newStr == NULL)
 		return (NULL);
 
-	for (i = 0; i < nmemb; i++)
+	for (i = 0; i < (nmemb * size); i++)
 		newStr[i] = 0;
 	newStr[i] = '\0';
 
