@@ -3,9 +3,9 @@
 
 /**
  * main - a program that prints its own opcodes
- * @argc: the number of arguments passed to the program
- * @argv: an array of strints containing the arguments passed
- * Return: returns 0 (success)
+ * @argc: number of command-line arguments
+ * @argv: array of strings that contain each command-line argument
+ * Return: returns 0 (Success)
  */
 int main(int argc, char *argv[])
 {
@@ -25,12 +25,12 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 
-	str = (char *)main;
+	str = (char *) main;
 	for (i = 0; i < n; i++)
 	{
-		if (i == (n - 1))
+		if (i == n - 1)
 		{
-			printf("%02hhx\n", str[1]);
+			printf("%02hhx\n", str[i]);
 			break;
 		}
 		printf("%02hhx ", str[i]);
