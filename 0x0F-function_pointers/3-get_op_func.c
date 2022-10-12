@@ -1,3 +1,11 @@
+/**
+ * get_op_func - a function that selects the correct function to perform
+ * the operation asked by the user
+ * @s: the operator passed as an argument
+ *
+ * Return: returns a pointer to the function that corresponds to the
+ * operator given as an argument
+ */
 int (*get_op_func(char *s))(int, int)
 {
 	opt_t ops[] = {
@@ -10,8 +18,12 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i;
 
-	if (s != "+" || s != "-" || s != "*" || s != "/" || s != "%")
-		return (NULL);
-
-	for (i = 0; )
+	for (i = 0; i < 5 && s != NULL; i++)
+	{
+		if (s[0] == *(ops[i].op))
+		{
+			return (ops[i].f);
+		}
+	}
+	return (NULL);
 }
