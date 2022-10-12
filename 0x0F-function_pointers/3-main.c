@@ -1,7 +1,8 @@
 #include "calc.h"
 
 /**
- * main - a program that performs simple operations
+ * main - a program that performs simple operations by calling
+ * other functions
  * @argc: number of arguments passed to the program during runtime
  * @argv: an array of strings containing the arguments passed to the
  * program at runtime
@@ -11,18 +12,31 @@
 int main(int argc,  char *argv[])
 {
 	int num1, num2, ans;
-	char *operator;
+	int (*p)(int, int);
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	num1 = atoi(argv[1]);
-	operator = argv[2];
-	num2 = atoi(argv[3]);
+	if (strlen(argv[2]) == 1 && (argv[2][0] == '+' || argv[2][0] == '-'
+				     || argv[2][0] == '*' || argv[2][0] == '/'
+				     || argv[2][0] == '%'))
+	{
+		if (argv[3] == 0 && (argv[2][0] == '/' || argv[2][0] == '%'))
+		{
+			printf("Error\n");
+			exit(100);
+		}
+		num1 = atoi(argv[1]);
+		num2 = atoi(argv[3]);
 
-	ans = (*get_op_func(operator))(num1, num2);
-	printf("%d", ans);
-	return (0);
+		p = get_op_func(argv[2]);
+		ans = p(num1, num2);
+
+		printf("%d\n", ans);
+		return (0);
+	}
+	printf("Error\n");
+	exit(99);
 }
