@@ -1,3 +1,5 @@
+#include "calc.h"
+
 /**
  * get_op_func - a function that selects the correct function to perform
  * the operation asked by the user
@@ -8,7 +10,7 @@
  */
 int (*get_op_func(char *s))(int, int)
 {
-	opt_t ops[] = {
+	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
 		{"*", op_mul},

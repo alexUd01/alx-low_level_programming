@@ -20,8 +20,7 @@ int main(int argc,  char *argv[])
 		exit(98);
 	}
 	if (strlen(argv[2]) == 1 && (argv[2][0] == '+' || argv[2][0] == '-'
-				     || argv[2][0] == '*' || argv[2][0] == '/'
-				     || argv[2][0] == '%'))
+		|| argv[2][0] == '*' || argv[2][0] == '/' || argv[2][0] == '%'))
 	{
 		if (argv[3] == 0 && (argv[2][0] == '/' || argv[2][0] == '%'))
 		{
