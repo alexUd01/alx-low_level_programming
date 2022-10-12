@@ -11,29 +11,32 @@
  */
 int main(int argc,  char *argv[])
 {
-	int num1, num2, ans;
-	int (*p)(int, int);
+	int num1, num2, result;
+	int (*ptr)(int, int);
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
+
 	if (strlen(argv[2]) == 1 && (argv[2][0] == '+' || argv[2][0] == '-'
 		|| argv[2][0] == '*' || argv[2][0] == '/' || argv[2][0] == '%'))
 	{
-		if (argv[3][0] == 0 && (argv[2][0] == '/' || argv[2][0] == '%'))
+		if (atoi(argv[3]) == 0 && (argv[2][0] == '/' || argv[2][0] == '%'))
 		{
 			printf("Error\n");
 			exit(100);
 		}
+
 		num1 = atoi(argv[1]);
 		num2 = atoi(argv[3]);
 
-		p = get_op_func(argv[2]);
-		ans = p(num1, num2);
+		ptr = get_op_func(argv[2]);
+		result = ptr(num1, num2);
 
-		printf("%d\n", ans);
+		printf("%d\n", result);
+
 		return (0);
 	}
 	printf("Error\n");
