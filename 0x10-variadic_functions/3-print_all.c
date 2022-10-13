@@ -2,10 +2,8 @@
 
 /**
  * print_all - a function that prints anything
- * 
- *
- *
- *
+ * @format: alist of types of arguments passed to the function
+ * Return: returns nothing
  */
 void print_all(const char * const format, ...)
 {
