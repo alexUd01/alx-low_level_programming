@@ -1,4 +1,4 @@
-#Projects Description
+# Projects Description
 ## 0x10-variadic_functions
 ### 0-sum_them_all.c
 #### A function that returns the sum of all its parameters.
