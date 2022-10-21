@@ -11,11 +11,10 @@ size_t list_len(const list_t *h)
 	const list_t *ptr = h;
 	size_t i;
 
-	if (ptr == NULL)
-		return(-1);
 	while (ptr != NULL)
 	{
-		i++;
+		if (ptr->str != NULL)
+			i++;
 		ptr = ptr->next;
 	}
 	return (i);
