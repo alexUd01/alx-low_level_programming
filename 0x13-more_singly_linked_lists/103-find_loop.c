@@ -6,7 +6,7 @@
  * Return: returns the address of the node where the loop starts (SUCCESS)
  *         or NULL if there is no loop
  */
-listint_t *find_listint_loop(listint *head)
+listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *slow = head;
 	listint_t *fast = head;
