@@ -7,46 +7,21 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *ptr = head;
 	size_t count = 0;
+	long int diff;
 
-	if (head == NULL)
-		exit(98);
-	while (ptr != NULL)
+	while (head)
 	{
+		diff = head - head->next;
 		count++;
-		printf("%d\n", ptr->n);
-		ptr = ptr->next;
+		printf("[%p] %d\n", (void *)head, head->n);
+		if (diff > 0)
+			head = head->next;
+		else
+		{
+			printf("-> [%p] %d\n", (void *)head->next, head->next->n);
+			break;
+		}
 	}
-	ptr = NULL;
 	return (count);
-	
-}
-int main(void)
-{
-    listint_t *head;
-    listint_t *head2;
-    listint_t *node;
-
-    head2 = NULL;
-    add_nodeint(&head2, 0);
-    add_nodeint(&head2, 1);
-    add_nodeint(&head2, 2);
-    add_nodeint(&head2, 3);
-    add_nodeint(&head2, 4);
-    add_nodeint(&head2, 98);
-    add_nodeint(&head2, 402);
-    add_nodeint(&head2, 1024);
-    print_listint_safe(head2);
-    head = NULL;
-    node = add_nodeint(&head, 0);
-    add_nodeint(&head, 1);
-    add_nodeint(&head, 2);
-    add_nodeint(&head, 3);
-    add_nodeint(&head, 4);
-    node->next = add_nodeint(&head, 98);
-    add_nodeint(&head, 402);
-    add_nodeint(&head, 1024);
-    print_listint_safe(head);
-    return (0);
 }
