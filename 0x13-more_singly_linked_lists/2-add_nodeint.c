@@ -5,10 +5,28 @@
  * listint_t list
  * @head: the address of the pointer to the first node
  * @n: the data to be added.
- * Retrun: returns the address of the enw element (ON SUCCESS)
+ * Return: returns the address of the enw element (ON SUCCESS)
  *         returns NULL (ON FAILURE)
  */
-listint_t *add_nodeint(listint **head, const int n)
+listint_t *add_nodeint(listint_t **head, const int n)
 {
-	
+	listint_t *temp = malloc(sizeof(listint_t));
+
+	if (temp == NULL)
+		return (NULL);
+	temp->n = n;
+	temp->next = NULL;
+
+	if (*head == NULL)
+	{
+		*head = temp;
+		temp = NULL;
+		return (*head);
+	}
+
+	temp->next = *head;
+	*head = temp;
+	temp = NULL;
+
+	return (*head);
 }
