@@ -23,6 +23,5 @@ size_t print_listint_safe(const listint_t *head)
 			break;
 		}
 	}
-	head = NULL;
 	return (count);
 }
