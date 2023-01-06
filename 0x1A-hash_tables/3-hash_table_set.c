@@ -16,7 +16,7 @@ hash_node_t *create_node(const unsigned char *key, const char *value)
 		return (NULL);
 
 	/* TODO-DONE: use strcpy if `assignment operator` fails */
-	new_node->key = strdup(key);
+	new_node->key = (char *)key;
 	new_node->value = strdup(value);
 	new_node->next = NULL;
 
@@ -38,7 +38,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *temp, *ptr;
 
-	if (ht == NULL || key == NULL)
+	if (ht == NULL || strcmp(key, "") == 0)
 		return (0); /* TODO-DONE: do something here */
 
 	index = key_index((const unsigned char *)key, ht->size);
@@ -64,7 +64,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (strcmp(ptr->key, key) == 0)
 			{
 				ptr->value = strdup(value);
-				free(temp), temp = NULL;
+				free(temp->value), free(temp), temp = NULL;
 				return (1);
 			}
 			ptr = ptr->next;
