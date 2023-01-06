@@ -60,7 +60,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* case 2: collision occured */
 	if (ht->array[index] != NULL)
 	{
-		/* don't replace value. value must be duplicated */
+		/* replace value if key exists */
+		if (strcmp(ht->array[index]->key, key) == 0)
+		{
+			ht->array[index]->value = (char *)value;
+			free(temp->key), free(temp->value);
+			free(temp), temp = NULL;
+			return (1);
+		}
 		ptr = ht->array[index];
 		while (ptr->next != NULL)
 			ptr = ptr->next;
