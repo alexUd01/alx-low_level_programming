@@ -10,7 +10,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 	hash_table_t *new_table;
 	unsigned int i;
 
-	if (size == 0)
+	if (size == 0 || size > ULONG_MAX)
 		return (NULL);
 
 	/* create new hash table */
