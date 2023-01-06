@@ -42,7 +42,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0); /* TODO-DONE: do something here */
 
 	index = key_index((const unsigned char *)key, ht->size);
-
 	temp = create_node((const unsigned char *)key, value);
 	if (temp == NULL)
 		return (0); /* TODO-DONE: malloc failed. Do something */
@@ -75,6 +74,5 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index] = temp;
 		return (1);
 	}
-	/* printf("Not implemented yet"); */
 	return (0);
 }
