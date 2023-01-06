@@ -16,7 +16,6 @@ void free_array_item_content(hash_node_t **item)
 	/* Case 1: no collision */
 	if ((*item)->next == NULL)
 	{
-		printf("free '%s'\n", (*item)->key);
 		free(*item);
 		return;
 	}
@@ -26,7 +25,6 @@ void free_array_item_content(hash_node_t **item)
 	while (ptr != NULL)
 	{
 		temp = ptr;
-		printf("free '%s'\n", temp->key);
 		ptr = ptr->next;
 		free(temp);
 	}
