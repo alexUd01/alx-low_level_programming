@@ -17,7 +17,7 @@ hash_node_t *create_node(const unsigned char *key, const char *value)
 
 	/* TODO-DONE: use strcpy if `assignment operator` fails */
 	new_node->key = (char *)key;
-	new_node->value = (char *)value;
+	new_node->value = strdup(value);
 	new_node->next = NULL;
 
 	return (new_node);
