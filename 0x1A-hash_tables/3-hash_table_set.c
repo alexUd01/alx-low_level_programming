@@ -36,7 +36,7 @@ hash_node_t *create_node(const unsigned char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *temp;
+	hash_node_t *temp, *ptr;
 
 	if (ht == NULL || key == NULL)
 		return (0); /* TODO-DONE: do something here */
@@ -58,12 +58,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* case 2: collision occured */
 	if (ht->array[index] != NULL)
 	{
-		/* replace value if key exists */
-		if (strcmp(ht->array[index]->key, key) == 0)
+		/* replace value if key exists in linked list */
+		ptr = ht->array[index];
+		while (ptr != NULL)
 		{
-			ht->array[index]->value = (char *)value;
-			free(temp), temp = NULL;
-			return (1);
+			if (strcmp(ptr->key, key) == 0)
+			{
+				ptr->value = (char *)value;
+				free(temp), temp = NULL;
+				return (1);
+			}
+			ptr = ptr->next;
 		}
 		/* add to top of bucket if keys are different */
 		temp->next = ht->array[index];
