@@ -4,7 +4,7 @@ void print_list(hash_node_t *ptr, int *first_initialized_item_flag)
 {
 	while (ptr != NULL)
 	{
-		if (first_initialized_item_flag == 0)
+		if (*first_initialized_item_flag == 0)
 		{
 			printf("'%s': '%s'", ptr->key, ptr->value);
 			*first_initialized_item_flag = 1;
@@ -47,4 +47,21 @@ void hash_table_print(const hash_table_t *ht)
 		}
 	}
 	printf("}\n");
+}
+
+int main(void)
+{
+    hash_table_t *ht;
+
+    ht = hash_table_create(1024);
+    hash_table_print(ht);
+    hash_table_set(ht, "c", "fun");
+    hash_table_set(ht, "python", "awesome");
+    hash_table_set(ht, "Bob", "and Kris love asm");
+    hash_table_set(ht, "N", "queens");
+    hash_table_set(ht, "Asterix", "Obelix");
+    hash_table_set(ht, "Betty", "Cool");
+    hash_table_set(ht, "98", "Battery Street");
+    hash_table_print(ht);
+    return (EXIT_SUCCESS);
 }
