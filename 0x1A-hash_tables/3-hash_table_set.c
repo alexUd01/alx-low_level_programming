@@ -64,7 +64,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (strcmp(ptr->key, key) == 0)
 			{
 				ptr->value = (char *)value;
-				free(temp), temp = NULL;
 				return (1);
 			}
 			ptr = ptr->next;
