@@ -18,6 +18,9 @@ hash_table_t *hash_table_create(unsigned long int size)
 	if (new_table == NULL)
 		return (NULL);
 
+	/* initialize the value of size */
+	new_table->size = size;
+
 	/* allocate memory for hash table array of items */
 	new_arr_len = size + 1;
 	new_table->array = malloc(sizeof(hash_node_t) * new_arr_len);
@@ -26,9 +29,6 @@ hash_table_t *hash_table_create(unsigned long int size)
 		free(new_table);
 		return (NULL);
 	}
-
-	/* initialize the value of size */
-	new_table->size = size;
 
 	/* initialize elements of hash table with NULL */
 	for (i = 0; i < new_arr_len; i++)
