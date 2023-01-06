@@ -15,12 +15,9 @@ hash_node_t *create_node(const unsigned char *key, const char *value)
 	if (new_node == NULL)
 		return (NULL);
 
-	new_node->key = malloc(sizeof(key));
-	new_node->value = malloc(sizeof(value));
-
 	/* TODO-DONE: use strcpy if `assignment operator` fails */
-	strcpy(new_node->key, (char *)key);
-	strcpy(new_node->value, (char *)value);
+	new_node->key = (char *)key;
+	new_node->value = (char *)value;
 	new_node->next = NULL;
 
 	return (new_node);
@@ -64,7 +61,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (strcmp(ht->array[index]->key, key) == 0)
 		{
 			ht->array[index]->value = (char *)value;
-			free(temp->key), free(temp->value);
 			free(temp), temp = NULL;
 			return (1);
 		}
