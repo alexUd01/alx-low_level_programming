@@ -36,7 +36,7 @@ hash_node_t *create_node(const unsigned char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *temp, *ptr;
+	hash_node_t *temp;
 
 	if (ht == NULL || key == NULL)
 		return (0); /* TODO-DONE: do something here */
@@ -64,10 +64,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			free(temp), temp = NULL;
 			return (1);
 		}
-		ptr = ht->array[index];
-		while (ptr->next != NULL)
-			ptr = ptr->next;
-		ptr->next = temp;
+		/* add to top of bucket if keys are different */
+		temp->next = ht->array[index];
+		ht->array[index] = temp;
 		return (1);
 	}
 	/* printf("Not implemented yet"); */
