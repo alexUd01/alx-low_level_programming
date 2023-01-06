@@ -44,9 +44,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht == NULL)
 		return (0); /* TODO-DONE: do something here */
 
-	if (key == NULL)
-		return (0); /* TODO-DONE: do something here */
-
 	if (strcmp(key, "") == 0)
 		return (0); /* TODO-DONE: handle empty string keys */
 
@@ -73,6 +70,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ptr->next = temp;
 		return (1);
 	}
-	printf("Not implemented yet");
+	/* printf("Not implemented yet"); */
 	return (0);
 }
