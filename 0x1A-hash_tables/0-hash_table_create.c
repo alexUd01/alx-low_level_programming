@@ -26,24 +26,16 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 	}
 
-	/* initialize the value of size */
-	new_table->size = size;
-
-	/* initialize elements of hash table with NULL */
 	if (new_table != NULL)
 	{
+		/* initialize the value of size */
+		new_table->size = size;
+
+		/* initialize elements of hash table with NULL */
 		for (i = 0; i < size; i++)
 			new_table->array[i] = NULL;
 
 		return (new_table);
 	}
 	return (NULL);
-}
-int main(void)
-{
-    hash_table_t *ht;
-
-    ht = hash_table_create(1024);
-    printf("%p\n", (void *)ht);
-    return (EXIT_SUCCESS);
 }
