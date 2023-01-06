@@ -19,7 +19,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 
 	/* initialize the value of size */
-	new_table->size = size;
+	new_table->size = size + 1;
 
 	/* allocate memory for hash table array of items */
 	new_arr_len = size + 1;
