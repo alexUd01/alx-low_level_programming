@@ -1,7 +1,8 @@
 #include "hash_tables.h"
 
 /**
- * free_array_item - a function that frees the item of a hash table array
+ * free_array_item_content - a function that frees the item of a hash
+ *                           table array
  * @item: a linked list containing collided items
  * Return: void
  */
@@ -11,7 +12,7 @@ void free_array_item_content(hash_node_t **item)
 
 	if (*item == NULL)
 		return;
-	
+
 	/* Case 1: no collision */
 	if ((*item)->next == NULL)
 	{
@@ -19,7 +20,6 @@ void free_array_item_content(hash_node_t **item)
 		free(*item);
 		return;
 	}
-	
 
 	/* Case 2: collision */
 	ptr = *item;
