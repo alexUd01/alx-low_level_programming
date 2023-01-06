@@ -41,6 +41,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *temp, *ptr;
 
+	if (ht == NULL || key == NULL)
+		return (0); /* TODO-DONE: do something here */
+
 	if (strcmp(key, "") == 0)
 		return (0); /* TODO-DONE: handle empty string keys */
 
