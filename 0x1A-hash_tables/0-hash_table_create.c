@@ -10,7 +10,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 	hash_table_t *new_table;
 	unsigned int i;
 
-	if (size == 0)
+	if (size <= 0)
 		return (NULL);
 
 	/* create new hash table */
@@ -19,7 +19,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 
 	/* allocate memory for hash table array of items */
-	new_table->array = malloc(sizeof(hash_node_t) * size);
+	new_table->array = malloc(sizeof(hash_node_t) * (size + 1));
 	if (new_table->array == NULL)
 	{
 		free(new_table);
