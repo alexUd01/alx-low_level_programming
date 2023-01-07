@@ -1,57 +1,69 @@
 #include "hash_tables.h"
 
 /**
- * print_list - a helper function that formats and prints the items of a
- *              hash_table_node_linked list
- * @ptr: a pointer to the first element of the linked list
- * @first_initialized_item_flag: the addess of a status flag
- * Return: void
+ * print_list - prints all the elements of a linked list
+ * @h: pointer to the hash_node_t list to print
  */
-void print_list(hash_node_t *ptr, int *first_initialized_item_flag)
+void print_list(hash_node_t *h)
 {
-	while (ptr != NULL)
+	while (h)
 	{
-		if (*first_initialized_item_flag == 0)
-		{
-			printf("'%s': '%s'", ptr->key, ptr->value);
-			*first_initialized_item_flag = 1;
-			break;
-		}
-		printf(", '%s': '%s'", ptr->key, ptr->value);
-		ptr = ptr->next;
+		printf("'%s': '%s'", h->key, h->value);
+		if (h->next)
+			printf(", ");
+		h = h->next;
 	}
 }
 
 /**
- * hash_table_print - a function that prints a hash table
- * Description: prints the key/value in the order that they appear in the
- *              array of the hash table
- *              * Order: array, list
- *              * if @ht is null don't print anything
- * @ht: the hash table
- * Return: void
+ * hash_table_print - prints a hash table
+ * @ht: hash table to print
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	unsigned long i;
-	int first_initialized_item_flag;
+	unsigned long int i;
+	hash_node_t *node = NULL;
+	char *last_key = NULL;
+	unsigned long int index;
 
-	if (ht == NULL)
-	{
-		printf("{}\n");
+	if (!ht)
 		return;
-	}
 
-	/* if ht != NULL */
-	putchar('{');
-	first_initialized_item_flag = 0;
 	for (i = 0; i < ht->size; i++)
 	{
 		if (ht->array[i] != NULL)
+			node = ht->array[i];
+	}
+
+	printf("{");
+
+	if (node)
+	{
+		last_key = node->key;
+		index = key_index((const unsigned char *)last_key, ht->size);
+		for (i = 0; i < ht->size; i++)
 		{
-			print_list(ht->array[i],
-				   &first_initialized_item_flag);
+			print_list(ht->array[i]);
+			if (ht->array[i] && i < index)
+				printf(", ");
 		}
 	}
+
 	printf("}\n");
+}
+int main(void)
+{
+    hash_table_t *ht;
+
+    ht = hash_table_create(1024);
+    hash_table_print(ht);
+    hash_table_set(ht, "c", "fun");
+    hash_table_set(ht, "python", "awesome");
+    hash_table_set(ht, "Bob", "and Kris love asm");
+    hash_table_set(ht, "N", "queens");
+    hash_table_set(ht, "Asterix", "Obelix");
+    hash_table_set(ht, "Betty", "Cool");
+    hash_table_set(ht, "98", "Battery Street");
+    hash_table_print(ht);
+    return (EXIT_SUCCESS);
 }
