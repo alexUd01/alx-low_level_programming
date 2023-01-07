@@ -35,3 +35,28 @@ void free_array_item_content(hash_node_t **item)
 	}
 	*item = NULL;
 }
+/**
+ * hash_table_delete - a function that deletes a hash table
+ * @ht: the hash table to be deleted
+ * Return: void
+ */
+void hash_table_delete(hash_table_t *ht)
+{
+	unsigned long i;
+
+	if (ht == NULL)
+		return;
+
+	if (ht->array == NULL)
+		return;
+
+	for (i = 0; i < ht->size; i++)
+	{
+		if (ht->array[i] != NULL)
+		{
+			free_array_item_content(&(ht->array[i]));
+		}
+	}
+	free(ht->array);
+	free(ht);
+}
