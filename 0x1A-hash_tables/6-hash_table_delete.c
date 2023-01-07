@@ -10,17 +10,6 @@ void free_array_item_content(hash_node_t **item)
 {
 	hash_node_t *temp, *ptr;
 
-	/* Case 1: no collision */
-	if ((*item)->next == NULL)
-	{
-		free((*item)->key);
-		free((*item)->value);
-		free(*item);
-		*item = NULL;
-		return;
-	}
-
-	/* Case 2: collision */
 	ptr = *item;
 	while (ptr != NULL)
 	{
