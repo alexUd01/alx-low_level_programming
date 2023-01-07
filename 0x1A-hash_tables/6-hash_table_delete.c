@@ -10,9 +10,6 @@ void free_array_item_content(hash_node_t **item)
 {
 	hash_node_t *temp, *ptr;
 
-	if (*item == NULL)
-		return;
-
 	/* Case 1: no collision */
 	if ((*item)->next == NULL)
 	{
