@@ -8,18 +8,16 @@
  */
 void free_array_item_content(hash_node_t **item)
 {
-	hash_node_t *temp, *ptr;
+	hash_node_t *temp;
 
-	ptr = *item;
-	while (ptr != NULL)
+	while (*item != NULL)
 	{
-		temp = ptr;
-		ptr = ptr->next;
-		free(temp->key);
-		free(temp->value);
-		free(temp);
+		temp = (*item)->next;
+		free((*item)->key);
+		free((*item)->value);
+		free(*item);
+		*item = temp;
 	}
-	*item = NULL;
 }
 /**
  * hash_table_delete - a function that deletes a hash table
