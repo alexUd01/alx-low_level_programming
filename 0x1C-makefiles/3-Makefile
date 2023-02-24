@@ -17,4 +17,4 @@ fclean:
 	$(RM) main.c~ school.c~ main.swp school.swp school $(OBJ)
 
 re:
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(SRC) -o $(NAME)
