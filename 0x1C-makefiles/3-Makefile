@@ -4,17 +4,21 @@ OBJ = $(SRC:.c=.o)
 NAME = school
 RM = rm -f
 
+# My variables
+OBJ_TEMP = $(SRC:.c=.swp)
+
+
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:
-	$(RM) main.c~ school.c~ main.swp school.swp school
+	$(RM) main.c~ school.c~ $(OBJ_TEMP) school
 
 oclean:
 	$(RM) $(OBJ)
 
 fclean:
-	$(RM) main.c~ school.c~ main.swp school.swp school $(OBJ)
+	$(RM) main.c~ school.c~ $(OBJ_TEMP) school $(OBJ)
 
 re:
 	$(CC) $(SRC) -o $(NAME)
