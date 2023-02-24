@@ -12,13 +12,13 @@ all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:
-	$(RM) main.c~ school.c~ $(OBJ_TEMP) school
+	$(RM) *~ $(OBJ_TEMP) $(NAME)
 
 oclean:
 	$(RM) $(OBJ)
 
 fclean:
-	$(RM) main.c~ school.c~ $(OBJ_TEMP) school $(OBJ)
+	$(RM) $(OBJ) *~ $(OBJ_TEMP) $(NAME)
 
 re:
 	$(CC) $(SRC) -o $(NAME)
