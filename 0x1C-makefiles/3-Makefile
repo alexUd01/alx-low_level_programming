@@ -21,5 +21,4 @@ fclean:
 	$(RM) $(OBJ) *~ $(OBJ_TEMP) $(NAME)
 
 re:
-	oclean
-	$(CC) $(SRC) -o $(NAME)
+	oclean $(CC) $(SRC) -o $(NAME)
