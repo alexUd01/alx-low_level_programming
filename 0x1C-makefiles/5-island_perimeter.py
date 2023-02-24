@@ -44,8 +44,12 @@ def island_perimeter(grid):
     12
     alex@xandex-pc:~/0x1C$
     """
-    if grid is None or len(grid) == 0:
+    if type(grid) is not list or len(grid) == 0 or len(grid) > 100:
         return 0
+
+    for row in grid:
+        if type(row) is not list or len(row) == 0 or len(row) > 100:
+            return 0
 
     breadth = 0
 
