@@ -1,2 +1,0 @@
-all: school.c
-	gcc school.c
