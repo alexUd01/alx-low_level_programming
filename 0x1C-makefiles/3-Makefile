@@ -8,13 +8,13 @@ all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:
-	$(RM) *~ *.swp school
+	$(RM) main.c~ school.c~ main.swp school.swp school
 
 oclean:
 	$(RM) $(OBJ)
 
 fclean:
-	$(RM) *~ *.swp school $(OBJ)
+	$(RM) main.c~ school.c~ main.swp school.swp school $(OBJ)
 
 re:
 	$(CC) $(SRC) -o $(NAME)
