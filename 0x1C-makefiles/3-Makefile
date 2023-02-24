@@ -15,5 +15,4 @@ oclean:
 
 fclean: clean oclean
 
-re: oclean
-	$(CC) $(SRC) -o $(NAME)
+re: oclean all
