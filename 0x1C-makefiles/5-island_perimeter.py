@@ -1,8 +1,25 @@
 #!/usr/bin/python3
 """
-A module that contains a function ``def island_perimeter(grid)``
+A module that contains two functions ``def island_perimeter(grid)``
 that returns the perimeter of the island describeed in grid
 """
+
+
+def num_water_neighbors(grid, i, j):
+    """Returns the number of water neighbors a cell has in a grid."""
+
+    num = 0
+
+    if i <= 0 or not grid[i - 1][j]:
+        num += 1
+    if j <= 0 or not grid[i][j - 1]:
+        num += 1
+    if j >= len(grid[i]) - 1 or not grid[i][j + 1]:
+        num += 1
+    if i >= len(grid) - 1 or not grid[i + 1][j]:
+        num += 1
+
+    return num
 
 
 def island_perimeter(grid):
@@ -44,19 +61,10 @@ def island_perimeter(grid):
     12
     alex@xandex-pc:~/0x1C$
     """
-    if type(grid) is not list or len(grid) == 0 or len(grid) > 100:
-        return 0
+    perimeter = 0
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            if grid[i][j]:
+                perimeter += num_water_neighbors(grid, i, j)
 
-    for row in grid:
-        if type(row) is not list or len(row) == 0 or len(row) > 100:
-            return 0
-
-    breadth = 0
-
-    for row in grid:
-        for cell in row:
-            if cell == 1:
-                breadth += 1
-    length = 1
-    perimeter = 2 * (length + breadth)
     return perimeter
