@@ -1,6 +1,26 @@
 #include "search_algos.h"
 
 /**
+ * print_array - a helper function that prints out sub-arrays
+ * @arr: the sub array to be printed out
+ * @l_idx: the leftmost index of the array
+ * @r_idx: the righemost index of the array
+ */
+void print_array(int *arr, int l_idx, int r_idx)
+{
+	int i;
+
+	printf("Searching in array: ");
+	for (i = l_idx; i <= r_idx; i++)
+	{
+		if (i != l_idx)
+			printf(", ");
+		printf("%d", arr[i]);
+	}
+	printf("\n");
+}
+
+/**
  * recurse_search - a helper function that recursively searches for an
  *                  integer in a given array
  * @arr: a pointer to the array to be searched
@@ -17,6 +37,9 @@ int recurse_search(int *arr, int val, int l_idx, int r_idx)
 	/* Base/Stop condition */
 	if (l_idx > r_idx)
 		return (-1);
+
+	/* Print currently searched array */
+	print_array(arr, l_idx, r_idx);
 
 	if (arr[mid] == val)
 		return (mid);
